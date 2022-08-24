@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Form = require("../models/noteModel");
 
-router.route("/App").post((req,res)=>{
+router.post("/App",(req,res)=>{
     const name = req.body.name;
     const email = req.body.email;
     const collegeName = req.body.collegeName;

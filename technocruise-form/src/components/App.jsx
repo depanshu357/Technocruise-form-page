@@ -1,6 +1,8 @@
 import React,{useState} from "react";
 import axios from "axios";
 import './App.css';
+// const { body, validationResult } = require('express-validator');
+
 
 function App() {
   const [input, setInput] = useState({
@@ -21,7 +23,8 @@ function App() {
       }
     })
   }
-
+  // const errors = validationResult();
+  
   function handleClick(event) {
     event.preventDefault();
     const Formnote = {
@@ -35,14 +38,18 @@ function App() {
 
     axios.post('http://localhost:3001/App', Formnote);
     console.log(input);
-    alert("Your Data has been Updated Successfully");
+    // if(!errors.isEmpty()){
+      // alert("Please enter valid data");
+    // }else{
+      alert("Your Data has been Updated Successfully");
+    // }
     
   }
   return (
     <div className="container">
       <h1>Your Details</h1>
       <form>
-        <input name="name" onChange={handleChange} placeholder="Name" />
+        <input name="name" onChange={handleChange} placeholder="Name"  />
         <input name="email" onChange={handleChange} placeholder="Email" />
         <input name="collegeName" onChange={handleChange} placeholder="College Name" />
         <input name="collegeCity" onChange={handleChange} placeholder="College City" />
